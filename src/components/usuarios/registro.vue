@@ -1,7 +1,14 @@
 <template>
 <div class="row justify-content-center">
     <div class="col-md-6">
+
       <h3 class="text-center">Registrar Usuario</h3>
+      <div v-if="esGuardado" class="alert alert-success" role="alert">
+      Estudiante ingresado satisfactoriamente 
+      </div>
+      <div v-else class="alert alert-danger" role="alert">
+      Estudiante no ingresado 
+      </div>
       <form @submit.prevent="handleSubmitForm">
         <br>
         <br>
@@ -30,7 +37,7 @@
           <input
             type="password"
             class="form-control"
-            v-model="password"
+            v-model="usuario.password"
             required
           />
         </div>
@@ -61,7 +68,9 @@ import axios from "axios";
 export default {
   data() {
     return {
-      passwordEscritoNuevamente:"",  
+      passwordEscritoNuevamente:"",
+      mensaje:"",
+      esGuardado:false,
       usuario: {
         "nombre": "",
         "email": "",
@@ -73,12 +82,12 @@ export default {
   },
   methods: {
     handleSubmitForm() {
-      let apiURL = "http://localhost:4000/api/create-student";
-
+      let apiURL = "http://localhost:4000/usuario-servicios/crear-usuario";
+     if (this.usuario.password==this.passwordEscritoNuevamente){
       axios
-        .post(apiURL, this.student)
+        .post(apiURL, this.usuario)
         .then(() => {
-          this.$router.push("/view");
+          this.$router.push("/registro-usuario");
           this.usuario = {
             "nombre": "",
             "email": "",
@@ -86,10 +95,17 @@ export default {
             "imagenPerfil": "",
             "tipo_usuario":"regular"
           };
+          this.passwordEscritoNuevamente="";
         })
         .catch((error) => {
           console.log(error);
         });
+        alert("estudiante ingresado");
+        this.esGuardado=true;
+        
+     }  else { this.esGuardado=false ;
+        alert("estudiante no ingresado");
+     }
     },
   },
 };

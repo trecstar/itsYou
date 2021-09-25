@@ -8,6 +8,6 @@ let usuarioSchema = new Schema({
     "imagenPerfil":String,
     "tipo_usuario":String
 
-});
+},{"versionKey":false});
 
 module.exports = mongoose.model("Usuario", usuarioSchema);
