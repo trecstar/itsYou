@@ -46,6 +46,20 @@ const routes = [
     component: () => import("../components/contacto.vue"),
   },
 
+  
+  {
+    path: "/cliente",
+    name: "registro usuario",
+    component: () => import("../components/cliente.vue"),
+  },
+
+  
+  {
+    path: "/administrador",
+    name: "registro usuario",
+    component: () => import("../components/administrador.vue"),
+  },
+
 
   {
     path: "/view",

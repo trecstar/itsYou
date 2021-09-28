@@ -30,6 +30,8 @@
           <li><a href="/sesion">Iniciar Sesión</a></li>
           <li><router-link to="/registro-usuario"> Registrar Cuenta</router-link></li>
           <li><a href="/contacto">Contacto</a></li>
+          <li><a href="/cliente">Cliente</a></li>
+          <li><a href="/administrador">Administrador</a></li>
         </ul>
       </nav>
     </div>

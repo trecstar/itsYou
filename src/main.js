@@ -6,6 +6,8 @@ import App from './App.vue'
 // agregar bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/style.css"
+import "./assets/css/cliente.css"
+import "./assets/css/administrador.css"
 
 
 Vue.config.productionTip = false
