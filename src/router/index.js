@@ -45,7 +45,16 @@ const routes = [
     name: "registro usuario",
     component: () => import("../components/contacto.vue"),
   },
-
+  {
+    path: "/interfazUsuarioRegular",
+    name: "interfaz sesion regular",
+    component: () => import("../components/usuarios/interfazUsuarioRegular.vue"),
+  },
+  {
+    path: "/interfazUsuarioAdministrador",
+    name: "interfaz sesion regular",
+    component: () => import("../components/usuarios/interfazUsuarioAdministrador.vue"),
+  },
 
   {
     path: "/view",

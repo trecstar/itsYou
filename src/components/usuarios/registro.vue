@@ -6,9 +6,9 @@
       <div v-if="esGuardado" class="alert alert-success" role="alert">
       Estudiante ingresado satisfactoriamente 
       </div>
-      <div v-else class="alert alert-danger" role="alert">
+     <!--  <div v-else class="alert alert-danger" role="alert">
       Estudiante no ingresado 
-      </div>
+      </div> -->
       <form @submit.prevent="handleSubmitForm">
         <br>
         <br>
