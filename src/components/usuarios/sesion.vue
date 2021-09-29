@@ -2,6 +2,9 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
       <h3 class="text-center">Iniciar Sesión</h3>
+      <div  v-if="salida" class="alert alert-success" role="alert">
+      {{salida}}
+      </div>
       <form @submit.prevent="handleSubmitForm">
         <br>
         <br>
@@ -22,7 +25,7 @@
           <input
             type="password"
             class="form-control"
-            v-model="password"
+            v-model="usuario.password"
             required
           />
         </div>
@@ -32,6 +35,7 @@
           <button class="btn btn-danger btn-block">Entrar</button>
         </div>
       </form>
+      
     </div>
   </div>
 
@@ -43,36 +47,46 @@ import axios from "axios";
 export default {
   data() {
     return {
-      passwordEscritoNuevamente:"",  
-      usuario: {
-        "nombre": "",
+     salida:"",
+     resultado:"",
+     usuario: {
         "email": "",
-        "password": "",
-        "imagenPerfil": "",
-        "tipo_usuario":"regular"
+        "password": ""
+        
       },
     };
   },
   methods: {
     handleSubmitForm() {
-      let apiURL = "http://localhost:4000/api/create-student";
-
+      let apiURL = "http://localhost:4000/usuario-servicios/sesion-usuario";
+        
       axios
-        .post(apiURL, this.student)
-        .then(() => {
-          this.$router.push("/view");
-          this.usuario = {
-            "nombre": "",
-            "email": "",
-            "password": "",
-            "imagenPerfil": "",
-            "tipo_usuario":"regular"
-          };
-        })
+        .post(apiURL, this.usuario)
+        .then((res) => {
+         
+         this.resultado= res.data;
+         if(this.resultado===null){
+           this.salida="Credenciales erroneas o usuario no registrado en el sistema";
+         }
+         else{
+            if (this.resultado.tipo_usuario=="regular"){
+              this.$router.push("/cliente");
+            }else if (this.resultado.tipo_usuario=="administrador")
+                this.$router.push("/administrador");
+            this.salida="";
+         }
+       })
         .catch((error) => {
           console.log(error);
         });
+
+    },
+    validacion (){
+      if(!this.usuario.email || !this.usuario.password){
+        this.salida="Complete todos los campo !"
+      }
     },
   },
+  
 };
 </script>

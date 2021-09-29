@@ -45,6 +45,7 @@ const routes = [
     name: "registro usuario",
     component: () => import("../components/contacto.vue"),
   },
+<<<<<<< HEAD
 
   
   {
@@ -60,6 +61,20 @@ const routes = [
     component: () => import("../components/administrador.vue"),
   },
 
+||||||| merged common ancestors
+
+=======
+  {
+    path: "/interfazUsuarioRegular",
+    name: "interfaz sesion regular",
+    component: () => import("../components/usuarios/interfazUsuarioRegular.vue"),
+  },
+  {
+    path: "/interfazUsuarioAdministrador",
+    name: "interfaz sesion regular",
+    component: () => import("../components/usuarios/interfazUsuarioAdministrador.vue"),
+  },
+>>>>>>> desarrollo-hernan
 
   {
     path: "/view",
