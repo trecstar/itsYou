@@ -35,7 +35,7 @@
           <button class="btn btn-danger btn-block">Entrar</button>
         </div>
       </form>
-      
+      {{resultado}}
     </div>
   </div>
 
@@ -64,17 +64,17 @@ export default {
         .post(apiURL, this.usuario)
         .then((res) => {
          
-         this.resultado= res.data;
-         if(this.resultado===null){
+         this.resultado= res.data.data;
+          /* if(this.resultado===null){
            this.salida="Credenciales erroneas o usuario no registrado en el sistema";
          }
          else{
             if (this.resultado.tipo_usuario=="regular"){
               this.$router.push("/cliente");
-            }else if (this.resultado.tipo_usuario=="administrador")
+            }else if (this.resultado.tipo_usuario=="admin")
                 this.$router.push("/administrador");
             this.salida="";
-         }
+         }  */
        })
         .catch((error) => {
           console.log(error);
