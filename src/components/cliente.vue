@@ -105,3 +105,23 @@
     </body>
     </html>
 </template>
+
+<script>
+import axios from "axios";
+
+let config = {
+  headers: {
+    autorizacion:`Bearer ${localStorage.token}` ,
+  }
+  }
+  let apiURL = "http://localhost:4000/usuario-servicios/getData";
+  axios
+        .post(apiURL, this.usuario,config)
+        .then((res) => {
+            console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+</script>

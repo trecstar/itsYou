@@ -1,4 +1,4 @@
-const jwt = require("jwt");
+const jwt = require("jwt-simple");
 const  tokenSecret =require("../services/token");
 
 function isAuth (req, res, next){
@@ -7,7 +7,8 @@ function isAuth (req, res, next){
      }
      const token =req.headers.authorization.split('')[1];
      const payload =jwt.decode(token, tokenSecret.clave);
-     req.usuario = payload;
+     //req.usuario = payload;
+     console.log(payload);
      next();
     }
 
