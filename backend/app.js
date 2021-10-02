@@ -20,7 +20,7 @@ mongoose
     }
   );
 
-//const studentAPI = require("../backend/routes/student.route");
+const studentAPI = require("../backend/routes/student.route");
 const usuarioAPI = require("../backend/routes/usuario.route");
 
 const app = express();
@@ -33,7 +33,7 @@ app.use(
 app.use(cors());
 
 // API
-//app.use("/api", studentAPI);
+app.use("/api", studentAPI);
 app.use("/usuario-servicios", usuarioAPI)
 
 // Create port

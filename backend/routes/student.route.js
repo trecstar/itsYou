@@ -22,7 +22,6 @@ studentRoute.route("/create-student").post((req, res, next) => {
     } else {
       console.log(data);
       res.json(data);
-      
     }
   });
 });

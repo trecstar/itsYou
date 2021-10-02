@@ -22,6 +22,7 @@ const routes = [
     component: () => import("../components/usuarios/registro.vue"),
   },
 
+
   {
     path: "/sesion",
     name: "registro usuario",
@@ -46,15 +47,18 @@ const routes = [
     component: () => import("../components/contacto.vue"),
   },
 
-
   
   {
-    path: "/cliente",
+    path: "/CreateComponent",
     name: "registro usuario",
-    component: () => import("../components/cliente.vue"),
+    component: () => import("../components/CreateComponent.vue"),
   },
 
-  
+  {
+    path: "/cliente",
+    name: "sesion cliente",
+    component: () => import("../components/cliente.vue"),
+  },
   {
     path: "/administrador",
     name: "registro usuario",

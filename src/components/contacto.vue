@@ -43,7 +43,7 @@
         </div>
         <br>
         <br>
-        <div class="text-center"><button type="submit">Enviar</button></div>
+        <div class="text-center"><button class="btn btn-primary" type="submit">Enviar</button></div>
       </form>
 
     </div>
