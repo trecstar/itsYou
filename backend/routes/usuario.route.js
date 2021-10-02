@@ -1,41 +1,6 @@
-<<<<<<< HEAD
 const express = require("express");
 const usuarioRoute = express.Router();
-
-// modelo usuario
-let usuarioModel = require("../models/Usuario");
-
-usuarioRoute.route("/").get((req, res) => {
-  usuarioModel.find((error, data, next) => {
-    if (error) {
-      return next(error);
-    } else {
-      console.log(error);
-      res.json(data);
-    }
-  });
-});
-
-usuarioRoute.route("/crear-usuario").post((req, res, next) => {
-   usuarioModel.create(req.body, (error, data) => {
-    if (error) {
-      return next(error);
-    } else {
-      console.log(data);
-      res.json(data);
-      
-      
-    }
-  }); 
-  
-});
-
-
-module.exports = usuarioRoute;
-||||||| merged common ancestors
-=======
-const express = require("express");
-const usuarioRoute = express.Router();
+const service = require("../services/index.js");
 //let usuarioDAO = require("./models/usuarioDAO");
 
 // modelo usuario
@@ -58,8 +23,9 @@ usuarioRoute.route("/crear-usuario").post((req, res, next) => {
       return next(error);
     } else {
       //console.log(data);
-      res.json(data);
       
+      res.json(data);
+    
       
     }
   }); 
@@ -76,8 +42,11 @@ var filtro ={email:req.body.email, password:req.body.password};
         console.log(error);
         return next(error);
       } else {
-        res.json(data);
         console.log(data);
+        res.status(200).send({data:data,
+        token:service.createToken(data) });
+        //res.json(data);
+        
       }
     }
   );
@@ -93,4 +62,3 @@ usuarioRoute.route("/autenticar").post((req, res, next) => {
 
 
 module.exports = usuarioRoute;
->>>>>>> DESARROLLO
