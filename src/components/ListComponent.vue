@@ -1,7 +1,12 @@
 <template>
   <div>
+    
     <div class="row">
       <div class="col-md-12">
+        <br>
+          <div>
+            <h6><a href="/CreateComponent">Crear nuevo portafolio</a></h6>
+          </div>
         
         <table class="table table-striped">
           <thead class="thead-dark">

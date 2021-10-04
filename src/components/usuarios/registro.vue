@@ -54,7 +54,7 @@
         <br>
         <br>
         <div class="form-group">
-          <button class="btn btn-danger btn-block">Crear cuenta</button>
+          <button class="btn btn-primary">Crear cuenta</button>
         </div>
       </form>
     </div>

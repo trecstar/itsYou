@@ -97,6 +97,10 @@
           <div class="nav-menu">
             <button class="btn btn-primary">Guardar</button>
           </div>
+          <br>
+          <div>
+            <h6><a href="/ListComponent">Portafolios creados</a></h6>
+          </div>
         </form>
       </div>
     </div>

@@ -28,6 +28,12 @@ const routes = [
     name: "registro usuario",
     component: () => import("../components/usuarios/sesion.vue"),
   },
+  
+  {
+    path: "/recuperar",
+    name: "registro usuario",
+    component: () => import("../components/usuarios/recuperar.vue"),
+  },
 
   {
     path: "/portafolios",
@@ -52,6 +58,12 @@ const routes = [
     path: "/CreateComponent",
     name: "registro usuario",
     component: () => import("../components/CreateComponent.vue"),
+  },
+  
+  {
+    path: "/ListComponent",
+    name: "registro usuario",
+    component: () => import("../components/ListComponent.vue"),
   },
 
   {

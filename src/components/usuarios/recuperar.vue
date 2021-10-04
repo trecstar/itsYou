@@ -1,7 +1,7 @@
 <template>
 <div class="row justify-content-center">
     <div class="col-md-6">
-      <h3 class="text-center">Iniciar Sesión</h3>
+      <h3 class="text-center">Recuperar Password</h3>
       <div  v-if="salida" class="alert alert-success" role="alert">
       {{salida}}
       </div>
@@ -20,24 +20,10 @@
         <br>
         <br>
 
+        
         <div class="form-group">
-          <label>Ingrese Password</label>
-          <input
-            type="password"
-            class="form-control"
-            v-model="usuario.password"
-            required
-          />
+          <button class="btn btn-primary">Enviar</button>
         </div>
-        <br>
-        <br>
-        <div class="form-group">
-          <button class="btn btn-primary">Entrar</button>
-        </div>
-        <br>
-          <div>
-            <h6><a href="/recuperar">Recuperar password</a></h6>
-          </div>
       </form>
       {{resultado}}
     </div>

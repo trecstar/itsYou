@@ -1,7 +1,7 @@
 <template>
     <div>
         
-      <h2> <span>Haz que las cosas sucedan, con</span><h1 id="marca" class="marca"><a href="index.html">it's You  </a></h1> </h2>
+      <h2> <span>Haz que las cosas sucedan, con</span><h1 id="marca" class="marca"><a href="/portada">it's You  </a></h1> </h2>
       
       <div class="owl-carousel testimonials-carousel">
 

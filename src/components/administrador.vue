@@ -11,14 +11,14 @@
     </head>
     <body>
         
-        <h2 id="marca"> <span>Haz que las cosas sucedan, con</span><h1 id="marca" class="marca"><a href="index.html">it's You  </a></h1> </h2>
+        <h2 id="marca"> <span>Haz que las cosas sucedan, con</span><h1 id="marca" class="marca"><a href="/portada">it's You  </a></h1> </h2>
         <br>
         <br>
         <br>
         
             
 
-        <table>
+        <!-- <table>
             <thead>
             <tr>
                 <th colspan="3">Portafolios a publicar</th>
@@ -54,7 +54,7 @@
                 </td>
             </tr>
             </tbody>
-        </table>
+        </table> -->
 
         
         <table>
