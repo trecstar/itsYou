@@ -34,6 +34,12 @@ const routes = [
     name: "registro usuario",
     component: () => import("../components/usuarios/recuperar.vue"),
   },
+  
+  {
+    path: "/cambiar",
+    name: "registro usuario",
+    component: () => import("../components/usuarios/cambiar.vue"),
+  },
 
   {
     path: "/portafolios",

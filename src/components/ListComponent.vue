@@ -4,9 +4,19 @@
     <div class="row">
       <div class="col-md-12">
         <br>
-          <div>
-            <h6><a href="/CreateComponent">Crear nuevo portafolio</a></h6>
-          </div>
+          
+
+          <div class="container">
+     
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <!-- <li class="active"><a href="#header">Portada</a></li> -->
+          <li><a href="/CreateComponent">Crear nuevo portafolio</a></li>
+          <li><a href="/cambiar">Cambiar contraseña</a></li>
+          
+        </ul>
+      </nav>
+    </div>
         
         <table class="table table-striped">
           <thead class="thead-dark">
