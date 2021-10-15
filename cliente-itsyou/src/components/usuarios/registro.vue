@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <h3 class="text-center">Registrar Usuario</h3>
       <div v-if="esGuardado" class="alert alert-success" role="alert">
-        Estudiante ingresado satisfactoriamente
+        Usuario ingresado satisfactoriamente
       </div>
       <!--  <div v-else class="alert alert-danger" role="alert">
       Estudiante no ingresado 
@@ -99,7 +99,7 @@ export default {
           .catch((error) => {
             console.log(error);
           });
-        alert("estudiante ingresado");
+        alert("Usuario ingresado");
         this.esGuardado = true;
       } else {
         this.esGuardado = false;

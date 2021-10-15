@@ -2,24 +2,13 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
       <h3 class="text-center">Cambiar contraseña</h3>
-      <div  v-if="salida" class="alert alert-success" role="alert">
-      {{salida}}
+      <div v-if="esGuardado" class="alert alert-success" role="alert">
+        Cambio de password exitoso !
       </div>
+      
       <form @submit.prevent="handleSubmitForm">
         <br>
         <br>
-        
-        <div class="form-group">
-          <label>Ingrese Password Anterior</label>
-          <input
-            type="password"
-            class="form-control"
-            v-model="usuario.password"
-            required
-          />
-        </div>
-        <br>
-        
         <div class="form-group">
           <label>Ingrese Password Nuevo</label>
           <input
@@ -31,12 +20,13 @@
         </div>
         <br>
         
+       
         <div class="form-group">
-          <label>Confirme Password Nuevo</label>
+          <label>Ingrese Password Nuevamente</label>
           <input
             type="password"
             class="form-control"
-            v-model="usuario.password"
+            v-model="passwordEscritoNuevamente"
             required
           />
         </div>
@@ -44,14 +34,20 @@
         <br>
         <div class="form-group">
           <button class="btn btn-primary">Cambiar</button>
+          <button
+                    @click.prevent="reenvio"
+                    class="btn btn-warning"
+                  >
+                    Regresar
+                  </button>
         </div>
         <br>
           
       </form>
-      {{resultado}}
+       
     </div>
-  </div>
-
+  
+   </div>
 </template>
 <script>
 
@@ -61,7 +57,8 @@ import ruta from '../../rutaAPI';
 export default {
   data() {
     return {
-     salida:"",
+     passwordEscritoNuevamente:"",
+     esGuardado:false,
      resultado:"",
      usuario: {
         "email": "",
@@ -72,36 +69,39 @@ export default {
   },
   methods: {
     handleSubmitForm() {
-      let apiURL = `${ruta.ruta_api}/usuario-servicios/sesion-usuario`;
-        
+      let apiURL = `${ruta.ruta_api}/usuario-servicios/cambiar-clave`;
+         let config = {
+      headers: {
+        authorization:`Bearer ${localStorage.token}` ,
+      }
+    }
+    if (this.usuario.password == this.passwordEscritoNuevamente) {
       axios
-        .post(apiURL, this.usuario)
+        .post(apiURL, this.usuario, config) 
         .then((res) => {
          
          this.resultado= res.data.data;
-         
-          if(this.resultado===null){
-           this.salida="Credenciales erroneas o usuario no registrado en el sistema";
-         }
-         else{
-           localStorage.setItem("token", res.data.token);
-            if (this.resultado.tipo_usuario=="regular"){
-              this.$router.push("/cliente");
-            }else if (this.resultado.tipo_usuario=="admin")
-                this.$router.push("/administrador");
-            this.salida="";
-         } 
+         alert("Password actualizado");
+         this.esGuardado = true;
        })
         .catch((error) => {
           console.log(error);
         });
-
+    }
+    else {
+        this.esGuardado = false;
+        alert("Los campos de pasword no coincide");
+      }
     },
     validacion (){
       if(!this.usuario.email || !this.usuario.password){
         this.salida="Complete todos los campo !"
       }
     },
+    reenvio(){
+   this.$router.go(-1);
+
+   },
   },
   
 };

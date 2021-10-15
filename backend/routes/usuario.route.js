@@ -88,15 +88,15 @@ usuarioRoute.route("/correo-consulta").post((req, res, next) => {
   //recuperar contraseña
   usuarioRoute.route("/recuperar-clave").post((req, res, next) => {
     let filtro ={email:req.body.email};
-    usuarioModel.findOne(filtro,
+    usuarioModel.findOne(filtro, 
       (error, data) => {
         if (error) {
           console.log(error);
           return next(error);
         } else {
           console.log(data);
-          if (data.email===null)
-            res.status(200).send({data:data});
+          if (data===null)
+            res.status(200).send({mensaje:"Usuario no registrado en Itsyou"});
           else
             {
               let informacion ={

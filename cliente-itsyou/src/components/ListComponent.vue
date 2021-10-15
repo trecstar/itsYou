@@ -4,7 +4,7 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
          
-               <li><a href="/cambiar">Cambiar contraseña</a></li>
+               <li><router-link to="/cambiar">Cambiar contraseña</router-link></li>
           
         </ul>
       </nav>

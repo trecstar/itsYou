@@ -2,7 +2,7 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
       <h3 class="text-center">Recuperar Password</h3>
-      <div  v-if="salida" class="alert alert-success" role="alert">
+      <div  v-if="esGuardado" class="alert alert-success" role="alert">
       {{salida}}
       </div>
       <form @submit.prevent="handleSubmitForm">
@@ -25,7 +25,7 @@
           <button class="btn btn-primary">Enviar</button>
         </div>
       </form>
-      {{resultado}}
+   
     </div>
   </div>
 
@@ -38,47 +38,35 @@ import ruta from '../../rutaAPI';
 export default {
   data() {
     return {
+     esGuardado:false,
      salida:"",
-     resultado:"",
      usuario: {
-        "email": "",
-        "password": ""
-        
-      },
+        "email": ""
+        },
     };
+  },
+  created() {
+   this.salida ="";
+   this.esGuardado=false;
   },
   methods: {
     handleSubmitForm() {
-      let apiURL = `${ruta.ruta_api}/usuario-servicios/sesion-usuario`;
-        
+      let apiURL = `${ruta.ruta_api}/usuario-servicios/recuperar-clave`;
+         
       axios
-        .post(apiURL, this.usuario)
+        .post(apiURL, this.usuario) 
         .then((res) => {
          
-         this.resultado= res.data.data;
-         
-          if(this.resultado===null){
-           this.salida="Credenciales erroneas o usuario no registrado en el sistema";
-         }
-         else{
-           localStorage.setItem("token", res.data.token);
-            if (this.resultado.tipo_usuario=="regular"){
-              this.$router.push("/cliente");
-            }else if (this.resultado.tipo_usuario=="admin")
-                this.$router.push("/administrador");
-            this.salida="";
-         } 
+         this.salida= res.data.mensaje;
+         this.esGuardado = true;
        })
         .catch((error) => {
           console.log(error);
         });
 
     },
-    validacion (){
-      if(!this.usuario.email || !this.usuario.password){
-        this.salida="Complete todos los campo !"
-      }
-    },
+    
+   
   },
   
 };

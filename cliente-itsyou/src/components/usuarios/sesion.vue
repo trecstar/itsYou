@@ -34,6 +34,7 @@
         <div class="form-group">
           <button class="btn btn-primary">Entrar</button>
         </div>
+        <router-link to="/recuperar">Olvido contraseña recuperela</router-link>
       </form>
       <!-- {{resultado}} -->
     </div>

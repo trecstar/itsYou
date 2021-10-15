@@ -18,8 +18,14 @@ const routes = [
   },
   {
     path: "/cambiar",
-    name: "registro usuario",
+    name: "cambiar clave",
     component: () => import("../components/usuarios/cambiar.vue"),
+  },
+
+  {
+    path: "/recuperar",
+    name: "recuperar clave",
+    component: () => import("../components/usuarios/recuperar.vue"),
   },
   {
     path: "/registro-usuario",
@@ -63,11 +69,11 @@ const routes = [
     name: "sesion cliente",
     component: () => import("../components/cliente.vue"),
   },
-  /* {
-    path: "/administrador",
-    name: "registro usuario",
-    component: () => import("../components/administrador.vue"),
-  }, */
+   {
+    path: "/cambiar",
+    name: "cambiar password",
+    component: () => import("../components/usuarios/cambiar.vue"),
+  }, 
 
 
   {

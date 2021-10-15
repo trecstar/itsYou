@@ -4,7 +4,7 @@
         <ul>
           <!-- <li class="active"><a href="#header">Portada</a></li> -->
           <li><router-link to="/CreateComponent"> Portafolio Estandar</router-link></li>
-          <li><a href="/cambiar">Cambiar contraseña</a></li>
+          <li><router-link to="/cambiar">Cambiar contraseña</router-link></li>
           
         </ul>
       </nav>
